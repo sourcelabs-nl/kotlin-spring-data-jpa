@@ -11,13 +11,11 @@ internal class KotlinJpaApplicationTests {
     lateinit var myRepository: MyRepository
 
     @Test
-    fun test() {
-        val myEntity0 = myRepository.save(MyEntity(prop1 = "Hello world"))
+    fun `invoking save after copy() should update and not insert new`() {
+        val myEntity = myRepository.save(MyEntity(prop1 = "Hello world"))
+        println(myEntity)
 
-        val myEntity1 = myEntity0.copy(prop1 = "F#ck the world")
-        println(myEntity1)
-
-        val myEntity2 = myRepository.save(myEntity1)
-        println(myEntity2)
+        val myEntityCopy = myRepository.save(myEntity.copy(prop1 = "F#ck the world"))
+        println(myEntityCopy)
     }
 }
