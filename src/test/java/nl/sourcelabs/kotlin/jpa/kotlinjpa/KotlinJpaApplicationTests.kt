@@ -19,7 +19,7 @@ internal class KotlinJpaApplicationTests {
         val myEntitySaved  = myRepository.save(myEntity)
         assertSame(myEntity, myEntitySaved)
 
-        val myEntityCopy = myEntitySaved.copy(prop1 = "F#ck the world")
+        val myEntityCopy = myEntitySaved.copy(prop1 = ".... the world")
         assertNotSame(myEntity, myEntityCopy)
 
         // This one is SUPER tricky, because when saving this copy we also update the myEntity reference from above.
